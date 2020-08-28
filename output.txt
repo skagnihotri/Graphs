@@ -5,5 +5,7 @@ DL --> Face_Recognition,
 ML --> DL, 
 PyTorch --> DL, 
 Data_Preprocessing --> ML, 
-Topological Sort :-
+Topological Sort using DFS:-
 Python, Data_Preprocessing, ML, PyTorch, DL, Dataset, Face_Recognition, 
+Topological Sort using BFS:-
+Python, Dataset, PyTorch, Data_Preprocessing, ML, DL, Face_Recognition, 
