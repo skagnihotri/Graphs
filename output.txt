@@ -1,11 +1,7 @@
 Graph :-
-Dataset --> Face_Recognition, 
-Python --> PyTorch, ML, Data_Preprocessing, 
-DL --> Face_Recognition, 
-ML --> DL, 
-PyTorch --> DL, 
-Data_Preprocessing --> ML, 
-Topological Sort using DFS:-
-Python, Data_Preprocessing, ML, PyTorch, DL, Dataset, Face_Recognition, 
-Topological Sort using BFS:-
-Python, Dataset, PyTorch, Data_Preprocessing, ML, DL, Face_Recognition, 
+4 --> 2, 
+2 --> 1, 3, 4, 
+3 --> 0, 2, 
+0 --> 1, 3, 
+1 --> 0, 2, 
+It is not a tree.

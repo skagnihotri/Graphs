@@ -1,9 +1,6 @@
-8
-Python PyTorch
-Python ML
-Python Data_Preprocessing
-PyTorch DL
-ML DL
-Data_Preprocessing ML
-DL Face_Recognition
-Dataset Face_Recognition
+5
+0 1
+0 3
+1 2
+3 2
+2 4
