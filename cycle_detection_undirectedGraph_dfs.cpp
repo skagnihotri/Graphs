@@ -1,5 +1,3 @@
-// cycle in undirected graph using bfs
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -33,42 +31,36 @@ public:
 		return;
 	}
 
-	bool isTree() {
+	bool cycle_dfs_helper(int src, unordered_map<int, bool> &visited, int parent) {
 
-		unordered_map<int, bool> visited;
-		unordered_map<int, int> parent;
+		visited[src] = true;
 
-		for (auto node : adjlist) {
-			parent[node.first] = node.first;
-		}
-
-
-		queue<int> q;
-		for (auto node : adjlist) {
-			if (!visited.count(node.first)) {
-				q.push(node.first);
-				visited[node.first] = true;
-			}
-
-			while (!q.empty()) {
-				auto node = q.front();
-				q.pop();
-
-				for (auto nbr : adjlist[node]) {
-					if (visited.count(nbr) and parent[node] != nbr) {
-						return false;
-					} else if (!visited.count(nbr)) {
-						q.push(nbr);
-						visited[nbr] = true;
-						parent[nbr] = node;
-					}
+		for (auto nbr : adjlist[src]) {
+			if (visited.count(nbr) and nbr != parent) {
+				return true;
+			} else if (!visited.count(nbr)) {
+				if (cycle_dfs_helper(nbr, visited, src)) {
+					return true;
 				}
 			}
 		}
 
-		return true;
+		return false;
 	}
 
+	bool cycle_dfs() {
+		unordered_map<int, bool> visited;
+
+		for (auto node : adjlist) {
+			if (!visited.count(node.first)) {
+				if (cycle_dfs_helper(node.first, visited, node.first)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
 };
 
 
@@ -91,10 +83,10 @@ int main() {
 
 	g.display();
 
-	if (g.isTree()) {
-		cout << "Yes, it is a tree.\n";
+	if (g.cycle_dfs()) {
+		cout << "Yes, it is cyclic.\n";
 	} else {
-		cout << "It is not a tree.\n";
+		cout << "Not cyclic.\n";
 	}
 
 	return 0;
