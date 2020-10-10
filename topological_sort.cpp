@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> // headerfile
 using namespace std;
 
 class Graph {
@@ -96,7 +96,7 @@ public:
 
 int main() {
 
-#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE   // preprocessor
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
