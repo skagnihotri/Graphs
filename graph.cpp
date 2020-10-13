@@ -8,15 +8,13 @@ public:
 		this->adjlist.clear();
 	}
 
-	void add(int x, int y) {
+	void add(int x, int y,bool bidir=true) {
 		adjlist[x].push_back(y);
 
 		if (x == y) {
 			return;
 		}
-
-		adjlist[y].push_back(x);
-
+		if(bidir) adjlist[y].push_back(x);
 		return;
 	}
 
